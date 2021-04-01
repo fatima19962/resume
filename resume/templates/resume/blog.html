@@ -1,0 +1,75 @@
+﻿{% extends "resume/base_2.html" %}
+<!-- Header Ends -->
+{% block content %}
+<!-- Page Title Starts -->
+<section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
+    <h1>my <span>blog</span></h1>
+    <span class="title-bg">posts</span>
+</section>
+<!-- Page Title Ends -->
+<!-- Main Content Starts -->
+<section class="main-content revealator-slideup revealator-once revealator-delay1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center">
+                <div class="col">
+                    <input type="search" name='item_name'  placeholder="search for courses" class="form-control form-control-borderless" >
+
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-success" type="submit">search</button>
+                </div>
+            </div>
+           </form>
+    </div>
+</div>
+        <div class="row">
+            {% if posts %}
+              {% for post in posts %}
+            <!-- Articles Starts -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
+                <article class="post-container">
+                    <div class="post-thumb">
+                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
+                            <img src="{{post.image.url}}" class="img-fluid" alt="Blog Post">
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-header">
+                            <h3><a href="blog-post.html">{{post.title}}</a></h3>
+                        </div>
+                        <div class="entry-content open-sans-font">
+                            <p>{{post.content}}
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Article Ends -->
+
+            </div>
+              {% endfor %}
+            {% endif %}
+        </div>
+            <!-- Pagination Starts -->
+            <div class="col-12 mt-4">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Pagination Ends -->
+        <!-- </div> -->
+        <!-- Articles Ends -->
+   <!-- </div> -->
+
+</section>
+
+{% endblock content %}
